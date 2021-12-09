@@ -10,9 +10,8 @@ app.get("/", (req,res)=>{
     res.sendFile(__dirname + "/views/guestBook.html");
     fs.readFile("views/guestBook.html", function(err, htmlData) {
         fs.readFile("myGuestBook.txt", (err, textData) => {    
-            if (err) throw err; // avbryt exekveringen om fel
-            let textText = textData.toString();
-                if(textText){
+            if(textData){
+                let textText = textData.toString();
                 let htmlText = htmlData.toString();
                 let output = htmlText.replace(/Finns_inget_data/, textText);
                 // skicka till klienten
