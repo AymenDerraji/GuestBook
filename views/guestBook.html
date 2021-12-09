@@ -5,21 +5,60 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>GuestBook</title>
+    <style>
+      input {
+        border-radius: 5px;
+        border: 1px solid rgb(170, 170, 170);
+        color: #000;
+      }
+      textarea {
+        border-radius: 5px;
+        border: 1px solid rgb(170, 170, 170);
+        color: #000;
+      }
+      button {
+        border-radius: 5px;
+        border: 1px solid rgb(170, 170, 170);
+        color: #000;
+      }
+    </style>
+    <script>
+      let myText = [];
+      function spara() {
+        const value = form;
+        console.log("value", value);
+        myText.push({
+          namn: form.namn,
+          email: form.email,
+          hemsida: form.hemsida,
+          telefon: form.telefon,
+          kommentar: form.kommentar,
+        });
+        myText.forEach((item) => {
+          document.getElementById("comment").innerHTML = `Name: ${item.namn}`;
+        });
+      }
+    </script>
   </head>
   <body>
-    <h2>Min about-sida</h2>
+    <h2>Min gästbok</h2>
     <div>
-      <p>Namn :</p>
-      <input type="text" name="namn" />
-      <p>Email :</p>
-      <input type="email" name="email" />
-      <p>Hemsida</p>
-      <input type="text" name="hemsida" />
-      <p>Telefon</p>
-      <input type="text" name="telefon" />
-      <p>kommentar</p>
-      <input type="textAres" name="kommentar" />
+      <form action="/" method="post">
+        <p>Namn :</p>
+        <input type="text" name="namn" required />
+        <p>Email :</p>
+        <input type="email" name="email" />
+        <p>Hemsida</p>
+        <input type="text" name="hemsida" />
+        <p>Telefon</p>
+        <input type="text" name="telefon" />
+        <p>kommentar</p>
+        <textarea name="kommentar" rows="4" cols="50"></textarea>
+        <br />
+        <button type="submit">Spara</button>
+      </form>
     </div>
-    <div></div>
+    <br />
+    <div>Finns_inget_data</div>
   </body>
 </html>
